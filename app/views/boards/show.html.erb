@@ -2,16 +2,15 @@
   <div class="ml-auto boards__linkBox">
     <%= link_to "みんなの節約術", boards_path, class: "btn btn-outline-dark" %>
     <%= link_to "みんなの節約術", edit_board_path, class: "btn btn-outline-dark" %>
-    <a href="/boards" class="btn btn-outline-dark">編集</a>
   </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    <h4>掲示板タイトル</h4>
+    <h4><%= @board.title %></h4>
   </div>
-  <div class="card-body">
-    <p class="card-text">掲示板本文</p>
-    <p class="text-right font-weight-bold mr-10">作成者名</p>
-  </div>
+    <div class="card-body">
+      <p class="card-text"><%= @board.body %></p>
+      <p class="text-right font-weight-bold mr-10">~</p>
+    </div>
 </div>
