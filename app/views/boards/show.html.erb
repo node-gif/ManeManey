@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center mt-4 mb-4">
   <div class="ml-auto boards__linkBox">
     <%= link_to "みんなの節約術", boards_path, class: "btn btn-outline-dark" %>
-    <%= link_to "みんなの節約術", edit_board_path, class: "btn btn-outline-dark" %>
+    <%= link_to "編集", edit_board_path, class: "btn btn-outline-dark" %>
   </div>
 </div>
 
@@ -10,7 +10,7 @@
     <h4><%= @board.title %></h4>
   </div>
     <div class="card-body">
-      <p class="card-text"><%= @board.body %></p>
+      <p class="card-text"><%= simple_format(@board.body) %></p>
       <p class="text-right font-weight-bold mr-10"><%= @user.name %></p>
     </div>
 </div>
