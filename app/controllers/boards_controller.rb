@@ -41,6 +41,13 @@ class BoardsController < ApplicationController
     end
   end
   
+  def destroy
+    board = Board.find_by(id: params[:id])
+    board.delete
+    flash[:alert] = "投稿を削除しました"
+    redirect_to boards_path
+  end
+  
   private
   
     def board_params
