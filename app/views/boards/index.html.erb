@@ -10,16 +10,17 @@
       <th>タイトル</th>
       <th>投稿者</th>
       <th>投稿日</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @board.each do |board| %>
-    <tr>
-      <td><&= board.title %></td>
-      <td></td>
-      <td><%= board.created_at %></td>
-      <td><%= link_to "詳細", board_path %></td>
-    </tr>
+      <tr>
+        <td><%= board.title %></td>
+        <td></td>
+        <td><%= board.created_at %></td>
+        <td><%= link_to "詳細", board, class: "btn btn-outline-dark" %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
