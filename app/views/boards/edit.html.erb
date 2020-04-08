@@ -3,7 +3,7 @@
   <div class="ml-auto boards__linkBox">
     <%= link_to 'みんなの節約術', boards_path, class: 'btn btn-outline-dark' %>
     <%= link_to '詳細', @board, class: 'btn btn-outline-dark' %>
-    <%= link_to '削除', @board, method: :delete, class: 'btn btn-outline-dark' %>
+    <%= link_to '削除', @board, method: :delete, class: 'btn btn-outline-dark', data: { confirm: '投稿を削除しますか？' } %>
   </div>
 </div>
 <%= form_for @board do |f| %>
