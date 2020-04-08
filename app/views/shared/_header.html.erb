@@ -7,19 +7,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to 'みんなの節約術', '#', class: "nav-link" %>
+      <li class="nav-item">
+        <%= link_to 'みんなの節約術', boards_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to '投稿する', '#', class: "nav-link" %>
+        <%= link_to '投稿する', new_board_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          ユーザー
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", '#', class: "dropdown-item" %>
-          <%= link_to "Another action", '#', class: "dropdown-item" %>
+          <%= link_to "ユーザー詳細", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "ログアウト", '#', class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
           <%= link_to 'Something else here', "#", class: "dropdown-item" %>
         </div>
