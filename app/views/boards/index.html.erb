@@ -1,2 +1,22 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<div class="d-flex align-items-center">
+  <h1>みんなの節約術</h1>
+  <div class="ml-auto boards__linkBox">
+    <%= link_to "新規作成", new_board_path, class: "btn btn-outline-dark" %>
+  </div>
+</div>
+<table class="table table-hover boards__table">
+  <thead class="thead-dark">
+    <tr>
+      <th>タイトル</th>
+      <th>投稿者</th>
+      <th>投稿日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>年月日</td>
+    </tr>
+  </tbody>
+</table>
