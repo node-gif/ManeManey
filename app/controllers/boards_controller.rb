@@ -20,7 +20,6 @@ class BoardsController < ApplicationController
       flash[:notice] = "投稿に成功しました"
       redirect_to @board
     else
-      flash[:alert] = "投稿に失敗しました"
       render new_board_path
     end
   end
@@ -30,13 +29,12 @@ class BoardsController < ApplicationController
   end
   
   def update
-    board = Board.find_by(id: params[:id])
-    board.update(board_params)
-    if board.save
-      flash[:notice] = "「#{ board.title }」を更新しました"
-      redirect_to board
+    @board = Board.find_by(id: params[:id])
+    @board.update(board_params)
+    if @board.save
+      flash[:notice] = "「#{ @board.title }」を更新しました"
+      redirect_to @board
     else
-      flash[:alert] = "「#{ board.title }」の更新に失敗しました"
       render :edit
     end
   end
