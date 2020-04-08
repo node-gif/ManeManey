@@ -30,6 +30,15 @@ class BoardsController < ApplicationController
   end
   
   def update
+    board = Board.find_by(id: params[:id])
+    board.update(board_params)
+    if board.save
+      flash[:notice] = "「#{ board.title }」を更新しました"
+      redirect_to board
+    else
+      flash[:alert] = "「#{ board.title }」の更新に失敗しました"
+      render :edit
+    end
   end
   
   private
