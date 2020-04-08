@@ -10,13 +10,17 @@
 }
 
 .devise-card {
-  border: none;
+  border: 2px solid #d9d9d9;
 }
 
 .form-wrap{
   max-width: 400px;
   width: 100%;
   margin: 50px auto;
+}
+
+.login-h2 {
+  padding: 20px 0;
 }
 
 .form-control {
