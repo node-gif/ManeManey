@@ -13,10 +13,13 @@
     </tr>
   </thead>
   <tbody>
+    <% @board.each do |board| %>
     <tr>
+      <td><&= board.title %></td>
       <td></td>
-      <td></td>
-      <td>年月日</td>
+      <td><%= board.created_at %></td>
+      <td><%= link_to "詳細",board_path %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
