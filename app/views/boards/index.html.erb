@@ -14,13 +14,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @board.each do |board| %>
-      <tr>
-        <td><%= board.title %></td>
-        <td></td>
-        <td><%= board.created_at %></td>
-        <td><%= link_to "詳細", board, class: "btn btn-outline-dark" %></td>
-      </tr>
-    <% end %>
+  <% @board.each do |board| %>
+    <tr>
+      <td><%= board.title %></td>
+      <td><%= board.user.name %></td>
+      <td><%= board.created_at %></td>
+      <td><%= link_to "詳細", board, class: "btn btn-outline-dark" %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
