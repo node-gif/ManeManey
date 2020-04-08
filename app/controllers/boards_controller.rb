@@ -26,6 +26,10 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    @board = Board.find_by(id: params[:id])
+  end
+  
+  def update
   end
   
   private
