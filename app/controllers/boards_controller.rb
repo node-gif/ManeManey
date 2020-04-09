@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @board = Board.all.order(created_at: :desc)
+    @board = Board.page(params[:page]).order(created_at: :desc)
   end
 
   def show
