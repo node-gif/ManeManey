@@ -7,7 +7,6 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: @board.user_id)
   end
 
   def new
