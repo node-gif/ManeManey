@@ -11,6 +11,8 @@
   </div>
     <div class="card-body">
       <p class="card-text"><%= simple_format(@board.body) %></p>
-      <p class="text-right font-weight-bold mr-10"><%= @user.name %></p>
+      <p class="text-right font-weight-bold mr-10"><%= @board.user.name %></p>
     </div>
 </div>
+
+<%= render partial: 'comment_form', locals: { comment: @comment } %>
