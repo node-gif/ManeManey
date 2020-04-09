@@ -1,12 +1,12 @@
 class BoardsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[show new create edit update destroy]
+  before_action :set_target_board, only: %i[show edit update destroy]
   
   def index
     @board = Board.page(params[:page]).order(created_at: :desc)
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
     @user = User.find_by(id: @board.user_id)
   end
 
@@ -25,11 +25,9 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board = Board.find_by(id: params[:id])
   end
   
   def update
-    @board = Board.find_by(id: params[:id])
     @board.update(board_params)
     if @board.save
       flash[:notice] = "「#{ @board.title }」を更新しました"
@@ -40,8 +38,7 @@ class BoardsController < ApplicationController
   end
   
   def destroy
-    board = Board.find_by(id: params[:id])
-    board.delete
+    @board.delete
     flash[:alert] = "投稿を削除しました"
     redirect_to boards_path
   end
@@ -50,5 +47,9 @@ class BoardsController < ApplicationController
   
     def board_params
       params.require(:board).permit(:title, :body).merge(user_id: current_user.id)
+    end
+    
+    def set_target_board
+      @board = Board.find_by(id: params[:id])
     end
 end
