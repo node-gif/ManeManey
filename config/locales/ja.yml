@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      board: 掲示板
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        profile-photo: プロフィール写真
+      board: 
+        title: タイトル
+        body: 本文
