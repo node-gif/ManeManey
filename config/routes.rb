@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   
   get '/users/:id', to: 'users#show', as: 'user'
   resources :boards
+  resources :comments, only: %i[create destroy]
 end

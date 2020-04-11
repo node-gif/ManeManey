@@ -5,12 +5,34 @@
   </div>
 </div>
 
+<!--掲示板詳細表示部分-->
 <div class="card">
   <div class="card-header">
     <h4><%= @board.title %></h4>
   </div>
     <div class="card-body">
       <p class="card-text"><%= simple_format(@board.body) %></p>
-      <p class="text-right font-weight-bold mr-10"><%= @user.name %></p>
+      <p class="text-right font-weight-bold mr-10"><%= @board.user.name %></p>
     </div>
+</div>
+
+<!--コメント送信部分-->
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
+
+<!--コメント表示部分-->
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">コメント</div>
+  <!--コメント繰り返し部分-->
+  <% @comments.each do |comment| %>
+    <div class="p-comment__item">
+      <p><%= simple_format(comment.comment) %></p>
+      <div class="p-comment__bottomLine">
+        <% if current_user.id == comment.user_id %>
+          <span><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してよろしいですか？' }, class: "btn btn-outline-dark" %></span>
+        <% end %>
+        <span><%= comment.created_at.to_s(:datetime_jp) %></span>
+        <span><%= comment.user.name %></span>
+      </div>
+    </div>
+  <% end %>
 </div>
