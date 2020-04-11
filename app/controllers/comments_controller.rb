@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
+  
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.board_id = current_user.id
     if @comment.save
       flash[:notice] = "コメントしました"
-      redirect_to @board
+      redirect_back fallback_location: root_path
     else
-      render :@board
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -13,6 +16,6 @@ class CommentsController < ApplicationController
   end
   
   def comment_params
-    params.require(:comment).permit(:comment, :user_id, :board_id)
+    params.require(:comment).permit(:comment)
   end
 end

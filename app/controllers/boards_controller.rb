@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
 
   def show
     @comment = Comment.new(board_id: @board.id)
+    @comments = Comment.all
   end
 
   def new

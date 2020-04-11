@@ -5,6 +5,7 @@
   </div>
 </div>
 
+<!--掲示板詳細表示部分-->
 <div class="card">
   <div class="card-header">
     <h4><%= @board.title %></h4>
@@ -15,4 +16,19 @@
     </div>
 </div>
 
-<%= render partial: 'comment_form', locals: { comment: @comment } %>
+<!--コメント送信部分-->
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
+
+<!--コメント表示部分-->
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">コメント</div>
+  <!--コメント繰り返し部分-->
+  <% @comments.each do |comment| %>
+    <div class="p-comment__item">
+      <p><%= simple_format(comment.comment) %></p>
+      <div class="p-comment__bottomLine">
+        <span><%= comment.created_at.to_s(:datetime_jp) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
